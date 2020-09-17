@@ -6,11 +6,12 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 11:17:01 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/17 12:34:41 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/17 22:48:35 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
@@ -22,17 +23,21 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	while (dest[i])
 		i++;
 	while (src[j] && j < nb)
+	{
 		dest[i + j] = src[j];
-	printf("Saluuu");
+		j++;
+	}
+	dest[i + j] = '\0';
 	return (dest);
 }
 
 int		main(void)
 {
 	char a[] = "Hello";
-	char b[] = "";
-	int c = 0;
+	char b[] = "hi";
+	int c = 1;
 
 	printf("%s", ft_strncat(a, b, c));
+
 	return (0);
 }

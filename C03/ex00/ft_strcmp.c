@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 14:18:47 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/16 21:37:07 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/17 20:13:04 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_strcmp(char *s1, char *s2)
 int		main(void)
 {
 	char a[] = "iiii";
-	char b[] = "iiio";
+	char b[] = "";
 	printf("%d", ft_strcmp(a, b));
 	return (0);
 }

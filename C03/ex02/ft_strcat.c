@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 22:01:39 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/17 11:14:32 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/17 20:49:45 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char	*ft_strcat(char *dest, char *src)
 
 int		main(void)
 {
-	char a[] = "Coucou";
-	char b[] = "toi";
+	char a[] = "";
+	char b[] = "hey";
 	printf("%s", ft_strcat(a, b));
 	return (0);
 }

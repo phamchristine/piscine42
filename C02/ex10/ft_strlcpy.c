@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 11:50:39 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/16 00:05:22 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/18 12:01:42 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,26 @@ unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 	i = 0;
 	while(src[i])
 		i++;
-	if (size == 0)
-		return (i);
-	while (src[i] && i < size)
+	if (size > '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		while (src[i] && i < size)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+		return (i);
 	}
-	dest[i] = '\0';
+	if (size == '\0')
+		return (i);
 	return (i);
 }
 
 int		main(void)
 {
-	int i = 3;
-	char a[] = "Hell";
-	char b[] = "";
+	int i = 15;
+	char a[] = "Hello";
+	char b[] = "Comment ca va";
 	printf("%u", ft_strlcpy(a, b, i));
 	return (0);
 }

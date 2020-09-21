@@ -6,12 +6,11 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 15:00:10 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/16 14:15:47 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/21 12:16:32 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -35,17 +34,45 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((unsigned char)str[i] > 31 && (unsigned char)str[i] < 127)
+		if ((unsigned char)str[i] >= 32 && (unsigned char)str[i] < 127)
 			ft_putchar(str[i]);
-		else if ((unsigned char)str[i] < 32 || (unsigned char)str[i] > 126)
+		else if ((unsigned char)str[i] < 32 || (unsigned char)str[i] >= 127)
 			ft_print_hexa(str[i]);
 		i++;
 	}
 }
 
+#include <limits.h>
+
+
+void	ft_putnbr(int nb)
+{
+	if (nb == INT_MIN)
+	{
+		ft_putnbr(INT_MIN / 10);
+		ft_putchar(-(INT_MIN % 10) + '0');
+		return ;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	ft_putchar(nb % 10 + '0');
+}
+
 int		main(void)
 {
-	char a[]  = "ØŒ®çnM";
+	char	*a = "Coucou\ntu vas bien ?";
+	char	b[] = {12, 127, 250, 254, 255, 0};
+
 	ft_putstr_non_printable(a);
+	write(1, "\n", 1);
+	ft_putstr_non_printable(b);
+	write(1, "\n", 1);
+	ft_putnbr(b[2]);
 	return (0);
 }
+

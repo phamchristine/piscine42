@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/21 17:33:09 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/23 12:28:29 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/23 22:06:31 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,39 +33,39 @@ int		ft_error(char *base)
 	int j;
 
 	i = 0;
+	if (base[1] == '\0' || base[0] == '\0')
+			return (0);
 	while (base[i])
 	{
-		if (base[i] <= 1)
-			return (1);
 		if (base[i] == '+' || base[i] == '-')
-			return (1);
+			return (0);
 		j = i + 1;
 		while (base[j])
 		{
 			if (base[i] == base[j])
-				return (1);
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	unsigned int num;
+	long int num;
 	int i;
 
 	num = nbr;
 	i = 0;
-	if (ft_error(base) == 0)
+	if (ft_error(base) == 1)
 	{
 		if (num < 0)
 		{
 			ft_putchar('-');
 			num = -num;
 		}
-		if (num >= 10)
+		if (num >= ft_strlen(base))
 		{
 			ft_putnbr_base(num / ft_strlen(base), base);
 		}
@@ -77,7 +77,7 @@ void	ft_putnbr_base(int nbr, char *base)
 
 int		main()
 {
-	char base[] = "01";
-	ft_putnbr_base(2147483647, base);
+	char base[] = "";
+	ft_putnbr_base(42, base);
 	return(0);
 }

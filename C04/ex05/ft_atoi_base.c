@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:42:18 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/23 12:28:45 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/23 22:12:19 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int		ft_error(char *base)
 	i = 0;
 	while (base[i])
 	{
-		if (base[i] < 33 || base[i] > 126 ||
+		if (base[i] == '\t' || base[i] == '\n' || base[i] == '\v' ||
+				base[i] == '\f' || base[i] == '\r' || base[i] == ' ' ||
 				base[i] == '+' || base[i] == '-')
 			return (0);
 		j = i + 1;
@@ -52,7 +53,8 @@ int		space_sign(char *str)
 
 	i = 0;
 	sign = 1;
-	while (str[i] < 33 || str[i] > 126)
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
+				|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
@@ -108,6 +110,6 @@ int		ft_atoi_base(char *str, char *base)
 
 int		main()
 {
-	printf("%d", ft_atoi_base("        +-+-11", "0123456789"));
+	printf("%d", ft_atoi_base("        +-+-11", "0123456789abcdef"));
 	return (0);
 }

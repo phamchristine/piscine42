@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 11:43:01 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/18 12:15:42 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/18 15:18:24 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_ft(int *nbr)
 	*nbr = 42;
 }
 
+
 int		main(void)
 {	
 	int c;
 
 	c = 56;
-	printf("%d\n", c);
 	ft_ft(&c);
-	printf("%d\n", c);
+	printf("%d", c);
 	return (0);
 }

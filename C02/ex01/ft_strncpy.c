@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:37:28 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/21 12:09:58 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/22 11:16:27 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
 	while (i < n)
 	{
 		dest[i] = '\0';

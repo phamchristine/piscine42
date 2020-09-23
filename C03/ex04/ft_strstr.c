@@ -40,6 +40,6 @@ int		main()
 {
 	char a[] = " Sstop Chris sdkfjnsdfn";
 	char b[] = " Chris";
-	printf("%s", ft_strstr(a, b));
-	printf("%s", strstr(a, b));
+	printf("%s\n", ft_strstr(a, b));
+	printf("%s\n", strstr(a, b));
 }

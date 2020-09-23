@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 22:01:39 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/17 20:49:45 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/21 10:55:03 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*ft_strcat(char *dest, char *src)
 	
 	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
+	while (dest[i])
 		i++;
-	while (src[j] != '\0')
+	while (src[j])
 	{
 		dest[i + j] = src[j];
 		j++;
@@ -33,8 +33,9 @@ char	*ft_strcat(char *dest, char *src)
 
 int		main(void)
 {
-	char a[] = "";
-	char b[] = "hey";
+	char a[] = "Hey";
+	char b[] = "Salut";
+
 	printf("%s", ft_strcat(a, b));
 	return (0);
 }

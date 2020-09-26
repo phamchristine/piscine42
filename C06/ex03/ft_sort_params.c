@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 18:43:15 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/24 20:38:27 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/26 16:45:22 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_strcmp(char *s1, char *s2)
 {
 	int i;
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] != ‘\0’)
+	while (s1[i] == s2[i] && s1[i] != '\0')
 		i++;
 	return (s1[i] - s2[i]);
 }
@@ -57,7 +57,7 @@ int		main(int argc, char **argv)
 	while (++i < argc)
 	{
 		ft_putstr(argv[i]);
-		ft_putchar(‘\n’);
+		ft_putchar('\n');
 	}
 	return (0);
 }

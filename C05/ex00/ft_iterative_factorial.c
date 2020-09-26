@@ -6,14 +6,14 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 12:18:06 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/23 14:04:26 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/26 13:51:05 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_iterative_factorial(int nb)
 {
 	int i;
-	int result;
+	long result;
 
 	i = 1;
 	result = 1;

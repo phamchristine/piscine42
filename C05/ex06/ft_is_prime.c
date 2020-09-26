@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 10:21:40 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/24 11:56:15 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/26 15:32:59 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ int		ft_is_prime(int nb)
 	i = 2;
 	if (nb < 2)
 		return (0);
-	if (nb == 2147483647)
-		return (1);
-	while (i < nb)
+	while (i <= nb / i)
 	{
-		if (nb % i == 0)
+		if ((nb % i) == 0)
 			return (0);
 		i++;
 	}

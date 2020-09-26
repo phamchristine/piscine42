@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:42:18 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/24 09:33:42 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/26 16:05:11 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		ft_atoi_base(char *str, char *base)
 	i = space_sign(str);
 	neg = 1;
 	result = 0;
-	if (ft_error(base) == 1)
+	if (ft_error(base) == 0)
 		return (0);
 	if (i < 0)
 	{

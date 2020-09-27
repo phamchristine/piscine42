@@ -1,0 +1,5 @@
+Credentials cache: API:42ED3BB5-C481-4CBA-8E2E-7999B4346533
+        Principal: chpham@42.FR
+
+  Issued                Expires             Flags    Principal
+Sep  7 12:57:08 2020  Sep 14 12:57:08 2020  FPRIA  krbtgt/42.FR@42.FR

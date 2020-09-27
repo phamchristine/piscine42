@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 18:43:15 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/26 16:45:22 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/27 15:13:12 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int		main(int argc, char **argv)
 	int		i;
 	int		j;
 	char	*tmp;
-	i = 0;
-	while (++i < argc)
+	i = 1;
+	while (i < argc)
 	{
-		j = i;
-		while (++j < argc)
+		j = i + 1;
+		while (j < argc)
 		{
 			if (ft_strcmp(argv[i], argv[j]) > 0)
 			{
@@ -51,7 +51,9 @@ int		main(int argc, char **argv)
 				argv[j] = argv[i];
 				argv[i] = tmp;
 			}
+			j++;
 		}
+		i++;
 	}
 	i = 0;
 	while (++i < argc)

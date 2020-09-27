@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/21 17:33:09 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/24 09:34:58 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/27 22:04:27 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_putnbr_base(int nbr, char *base)
 
 int		main()
 {
-	char base[] = "";
+	char base[] = "0123456789abcdef";
 	ft_putnbr_base(42, base);
 	return(0);
 }

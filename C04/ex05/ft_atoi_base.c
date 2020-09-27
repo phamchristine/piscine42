@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:42:18 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/26 16:05:11 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/27 22:07:29 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,6 @@ int		ft_atoi_base(char *str, char *base)
 
 int		main()
 {
-	printf("%d", ft_atoi_base("        +-+-11", "0123456789abcdef"));
+	printf("%d", ft_atoi_base("        -+-+-11", "0123456789"));
 	return (0);
 }

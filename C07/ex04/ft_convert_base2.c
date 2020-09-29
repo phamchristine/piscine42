@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 20:45:20 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/29 14:41:43 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/29 18:17:05 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*ft_putnbr_base(int nb, char *base, char *tab)
 	return (ft_rev_int_tab(tab, count));
 }
 
-char *ft_convert_base(char *nbr, char *base_from, char *base_to)
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int		result_int;
 	char	*result_str;
@@ -83,9 +83,10 @@ char *ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (result_str);
 }
 
+/*
 int		main(void)
 {
 	char *test;
-	test = ft_convert_base(" 	--+-1  d", "01", "0123456789");
+	test = ft_convert_base(" 	--+-568  d", "0123456789", "01");
 	printf("%s\n", test);
-}
+}*/

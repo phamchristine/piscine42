@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 16:11:30 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/27 20:42:26 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/30 10:05:49 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		result;
 
 	i = 1;
-	if (size == 0)
+	if (size <= 0 || strs == NULL || sep == NULL)
 	{
 		if (!(str = malloc(1)))
 			return (0);
@@ -94,12 +94,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	return (str);
 }
-/*
+
 #include <stdio.h>
 
 int		main(void)
 {
-	char *strs[] = {"hi", "hey", "hello,", "Chris", "it's", "nice", "to", "meet", "you."};
-	char *sep = " ";
-	printf("%s", ft_strjoin(9, strs, sep));
-}*/
+	char *strs[] = {""};
+	char *sep = "";
+	printf("%s", ft_strjoin(-3, strs, sep));
+}

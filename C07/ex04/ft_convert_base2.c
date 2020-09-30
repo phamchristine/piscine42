@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 20:45:20 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/29 18:17:05 by chpham           ###   ########.fr       */
+/*   Updated: 2020/09/30 08:33:27 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,27 @@ char	*ft_rev_int_tab(char *tab, int size)
 	return (tab);
 }
 
+char	*ft_putnbr_base_bis(int nb, int size_base, char *tab, char *base)
+{
+	int				count;
+	int				neg;
+	unsigned int	nbr;
+
+	count = 0;
+	(nb < 0) ? (nbr = -nb) : (nbr = nb);
+	neg = nb;
+	if (nbr == 0)
+		tab[count] = base[nbr % size_base];
+	while (nbr)
+	{
+		tab[count++] = base[nbr % size_base];
+		nbr /= size_base;
+	}
+	if (neg < 0)
+		tab[count++] = '-';
+	return (ft_rev_int_tab(tab, count));
+}
+
 char	*ft_putnbr_base(int nb, char *base, char *tab)
 {
 	int				size_base;
@@ -51,17 +72,16 @@ char	*ft_putnbr_base(int nb, char *base, char *tab)
 	{
 		neg = -1;
 		nbr = -nb;
+		count++;
 	}
-	if (nbr == 0)
-		tab[count] = base[nbr % size_base];
 	while (nbr)
 	{
-		tab[count++] = base[nbr % size_base];
 		nbr /= size_base;
+		count++;
 	}
-	if (neg < 0)
-		tab[count++] = '-';
-	return (ft_rev_int_tab(tab, count));
+	if (!(tab = malloc(sizeof(char) * count + 1)))
+		return (NULL);
+	return (ft_putnbr_base_bis(nb, size_base, tab, base));
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
@@ -69,8 +89,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		result_int;
 	char	*result_str;
 
-	if (!(result_str = malloc(20 * sizeof(char))))
-		return (NULL);
+	result_str = NULL;
 	if (check_base(base_from) == 0)
 		return (NULL);
 	if (check_base(base_to) == 0)
@@ -83,10 +102,9 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (result_str);
 }
 
-/*
 int		main(void)
 {
 	char *test;
-	test = ft_convert_base(" 	--+-568  d", "0123456789", "01");
+	test = ft_convert_base(" 	--+2544566", "0123456789", "0123456789abcdef");
 	printf("%s\n", test);
-}*/
+}

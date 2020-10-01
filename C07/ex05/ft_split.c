@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 09:18:26 by chpham            #+#    #+#             */
-/*   Updated: 2020/10/01 10:54:28 by chpham           ###   ########.fr       */
+/*   Updated: 2020/10/01 15:34:06 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_sep_inside(char *charset, char c)
 	return (0);
 }
 
-int		ft_size_words(char *str, char *charset)
+int		ft_size_words(char *str)
 {
 	int i;
 
@@ -95,6 +95,7 @@ char	**ft_split(char *str, char *charset)
 {
 	char **result;
 
+	result = NULL;
 	if (str == NULL || charset == NULL)
 		return (NULL);
 	result = ft_split_bis(str, charset, result);
@@ -105,6 +106,7 @@ int		main(int ac, char **av)
 {
 	//char str[] = "----helloehel-----hele-eheke";
 	//char charset[] = "";
+	(void)ac;
 	char **tab = ft_split(av[1], av[2]);
 	while (tab != NULL && *tab)
 	{

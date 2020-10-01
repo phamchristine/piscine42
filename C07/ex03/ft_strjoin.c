@@ -6,7 +6,7 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 16:11:30 by chpham            #+#    #+#             */
-/*   Updated: 2020/10/01 14:51:53 by chpham           ###   ########.fr       */
+/*   Updated: 2020/10/01 15:25:39 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		return (str);
 	}
 	result = size_strs(strs, size);
-	if (!(str = malloc((sizeof(char)) * result + ft_strlen(sep) * (size - 1))))
+	if (!(str = malloc((sizeof(char)) * result + ft_strlen(sep) * (size - 1) + 1)))
 		return (0);
 	ft_strcpy(str, strs[0]);
 	while (i < size)
@@ -99,7 +99,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 int		main(void)
 {
-	char *strs[] = {""};
-	char *sep = "";
-	printf("%s", ft_strjoin(-3, strs, sep));
+	char *strs[] = {"frekjfkwjrkwjebnf", "wejfwfe", "ekfjslej"};
+	char *sep = "\0";
+	printf("%s", ft_strjoin(3, strs, sep));
 }

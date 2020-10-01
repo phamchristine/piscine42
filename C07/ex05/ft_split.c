@@ -5,107 +5,111 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 14:49:17 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/29 15:34:55 by chpham           ###   ########.fr       */
+/*   Created: 2020/09/30 09:18:26 by chpham            #+#    #+#             */
+/*   Updated: 2020/10/01 10:54:28 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-int			ft_separator(char *str, char *charset)
-{
-	while (*charset)
-		if (*str == *charset++)
-			return (1);
-	return (0);
-}
-
-int			ft_strlen(char *str, char *charset)
+int		ft_sep_inside(char *charset, char c)
 {
 	int i;
 
 	i = 0;
-	while (str[i] && !ft_separator(str + i, charset))
+	while (charset[i])
+	{
+		if (c == charset[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int		ft_size_words(char *str, char *charset)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
 		i++;
 	return (i);
 }
 
-int			ft_strcount(char *str, char *charset)
+int		ft_count_words(char *str, char *charset)
 {
-	int i;
-	int j;
-
-	j = 0;
-	while (*str)
-	{
-		while (*str && ft_separator(str, charset))
-			str++;
-		i = ft_strlen(str, charset);
-		str += i;
-		if (i)
-			j++;
-	}
-	return (j);
-}
-
-char		*ft_strcpy(char *src, int n)
-{
-	char *dest;
-
-	if (!(dest = malloc((n + 1) * sizeof(char))))
-		return (NULL);
-	dest[n] = '\0';
-	while (n--)
-		dest[n] = src[n];
-	return (dest);
-}
-
-char		**ft_split(char *str, char *charset)
-{
-	char	**tab;
-	int		count;
+	int		length;
 	int		i;
-	int		n;
+	int		done;
 
-	count = ft_strcount(str, charset);
-	if (!(tab = malloc(sizeof(char*) * (count + 1))))
-		return (NULL);
-	i = -1;
-	while (++i < count)
+	length = 0;
+	i = 0;
+	done = 0;
+	while (str[i])
 	{
-		while (*str && ft_separator(str, charset))
-			str++;
-		n = ft_strlen(str, charset);
-		if (!(tab[i] = ft_strcpy(str, n)))
-			return (NULL);
-		str += n;
+		while (str[i] && ft_sep_inside(charset, str[i]) == 0)
+		{
+			if (!done)
+				length++;
+			done++;
+			i++;
+		}
+		if (ft_sep_inside(charset, str[i]) == 1)
+			i++;
+		done = 0;
 	}
-	tab[count] = 0;
-	return (tab);
+	return (length);
 }
 
-#include <stdio.h>
-
-int		main(void)
+char	**ft_split_bis(char *str, char *charset, char **result)
 {
-	char **test;
-	int i;
+	int		i;
+	int		j;
+	int		k;
+	int		lig;
 
 	i = 0;
-	test = ft_split("Hey ahah, bon au taff camarades !", "abc");
-	while(test[i])
+	lig = 0;
+	if (!(result = malloc((ft_count_words(str, charset) + 1) * sizeof(char *))))
+		return (NULL);
+	while (str[i] && lig < ft_count_words(str, charset))
 	{
-		printf("%s\n", test[i]);
-		i++;
+		k = 0;
+		while (str[i] && ft_sep_inside(charset, str[i]) == 1)
+			i++;
+		j = i;
+		while (str[i] && ft_sep_inside(charset, str[i]) == 0)
+			i++;
+		if (!(result[lig] = malloc((i - j + 1) * sizeof(char))))
+			return (NULL);
+		while (j < i)
+			result[lig][k++] = str[j++];
+		result[lig++][k] = 0;
 	}
-	printf("%s\n", test[i]);
-	i = 0;
-	while(test[i])
+	result[lig] = 0;
+	return (result);
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	char **result;
+
+	if (str == NULL || charset == NULL)
+		return (NULL);
+	result = ft_split_bis(str, charset, result);
+	return (result);
+}
+
+int		main(int ac, char **av)
+{
+	//char str[] = "----helloehel-----hele-eheke";
+	//char charset[] = "";
+	char **tab = ft_split(av[1], av[2]);
+	while (tab != NULL && *tab)
 	{
-		free(test[i]);
-		i++;
+		printf("%s\n", *tab);
+		tab++;
 	}
-	free(test[i]);
-	free(test);
 	return (0);
 }

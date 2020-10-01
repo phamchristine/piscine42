@@ -6,19 +6,30 @@
 /*   By: chpham <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 22:53:54 by chpham            #+#    #+#             */
-/*   Updated: 2020/09/27 11:48:07 by chpham           ###   ########.fr       */
+/*   Updated: 2020/10/01 11:11:34 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+int		ft_strlen(char *src)
+{
+	int i = 0;
+	while (src[i])
+	{
+		i++;
+	}
+	return (i);
+}
 
 char	*ft_strdup(char *src)
 {
 	char *new;
 	int i;
+	int j;
 
 	i = 0;
-	if(!(new = malloc(sizeof(src))))
+	j = ft_strlen(src);
+	if(!(new = malloc(sizeof(char) * j + 1)))
 		return (0);
 	while (src[i])
 	{

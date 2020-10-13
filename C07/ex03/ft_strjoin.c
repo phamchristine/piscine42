@@ -85,11 +85,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	result = size_strs(strs, size);
 	if (!(str = malloc((sizeof(char)) * result + ft_strlen(sep) * (size - 1) + 1)))
 		return (0);
-	ft_strcpy(str, strs[0]);
+	str = ft_strcpy(str, strs[0]);
 	while (i < size)
 	{
-		ft_strcat(str, sep);
-		ft_strcat(str, strs[i]);
+		str = ft_strcat(str, sep);
+		str = ft_strcat(str, strs[i]);
 		i++;
 	}
 	return (str);

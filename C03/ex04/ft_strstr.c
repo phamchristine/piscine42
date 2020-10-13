@@ -39,7 +39,7 @@ char	*ft_strstr(char *str, char *to_find)
 int		main()
 {
 	char a[] = " Sstop Chris sdkfjnsdfn";
-	char b[] = " Chris";
+	char b[] = "e";
 	printf("%s\n", ft_strstr(a, b));
 	printf("%s\n", strstr(a, b));
 }

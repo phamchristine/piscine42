@@ -1,2 +1,2 @@
 # piscine42
-Piscine
+Il manque certains exos mais ils ont tous ete validés

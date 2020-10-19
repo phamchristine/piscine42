@@ -24,4 +24,4 @@ int	main(void)
 	c = 'a';
 	ft_putchar(c);
 	return (0);
-}		
+}

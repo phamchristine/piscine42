@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chpham <chpham@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 17:35:58 by chpham            #+#    #+#             */
-/*   Updated: 2020/10/21 17:35:58 by chpham           ###   ########.fr       */
+/*   Created: 2020/10/26 14:41:06 by chpham            #+#    #+#             */
+/*   Updated: 2020/10/26 14:41:06 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
+#include <stdio.h>
+#include "ft_abs.h"
 
-# define FT_BOOLEAN_H
-#include <unistd.h>
-
-# define TRUE 1
-# define FALSE 0
-typedef int t_bool;
-# define EVEN(nbr) (!(nbr % 2))
-# define EVEN_MSG "I have an even number of arguments\n"
-# define ODD_MSG "I have an odd number of arguments\n"
-# define SUCCESS 0
-
-#endif
+int     main(void)
+{
+    printf("%d", ABS(- 4));
+}

@@ -9,10 +9,11 @@
 /*   Updated: 2020/10/19 18:47:01 by chpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef FT_H
 
 #define FT_H
-
+#include <unistd.h>
 void	ft_putchar(char c);
 void	ft_swap(int *a, int *b);
 void	ft_putstr(char *str);
